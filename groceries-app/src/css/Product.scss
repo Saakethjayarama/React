@@ -1,0 +1,14 @@
+.grocery-item{
+    background-color: rgb(215, 215, 228);
+    display: inline-block;
+    padding: 50px;
+    margin: 10px;
+    .product-price{
+        text-align: center;
+    }
+}
+
+.grocery-item:hover{
+    background-color: white;
+    font-weight: 600;
+}

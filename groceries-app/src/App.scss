@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.App {
+    .body{
+        height: 100%;
+        position: absolute;
+        .body-contents{
+            background-color: rgb(226, 45, 45);
+            display: flex;
+            flex: 1;
+            height: 100%;
+            .menu{
+                background-color: blue;
+                display: flex;
+                flex-direction: column;
+                padding-left: 10px;
+                padding-top: 10px;
+                width: 15%!important;
+                
+            }
+            
+            .grocery-items {
+                background-color: green;
+                width: 100%;
+                padding: 20px;
+    
+                
+            }
+    
+        }
+    }
+}

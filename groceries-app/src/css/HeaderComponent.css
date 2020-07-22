@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.App header {
+  background-color: yellow;
+  text-align: center;
+  padding: 20px 0px;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.App header .nav {
+  display: inline;
+}
+/*# sourceMappingURL=HeaderComponent.css.map */
