@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 import HeaderComponent from './Components/HeaderComponent'
-import MenuItem from './Components/MenuItem';
 import Product from './Components/Product';
 import FooterComponent from './Components/FooterComponent'
-import Axios from 'axios';
+import Axios from 'axios'
+import Menu from './Components/Menu'
 
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
         console.log("Some Error occured")
       })
 
-    Axios.get("http://localhost:8080/products/2")
+    Axios.get("http://localhost:8080/products/1")
       .then((res) => {
         this.setState({
           products : res.data
@@ -63,25 +63,18 @@ class App extends Component {
         <HeaderComponent />
         <div className="body">
           <div className="body-contents">
-              <div className="menu">
-                {menu.map((menuItem, index) => {
-                  return <MenuItem 
-                    menuItem = {menuItem}
-                    keys={index}
-                    clickListener={this.onClickListener}
-                  />
-                })}
-                
-              </div>
-              <div className="grocery-items">
+            
+            <Menu 
+              menu = {menu}
+              clickListener = {this.onClickListener} />
+            <div className="grocery-items">
               {products.map((product, index) => {
-                    return <Product 
-                    product = {product}
-                    key={`prod-list-key ${index}`}
-                  />
-                })}
-  
-              </div>
+                  return <Product 
+                  product = {product}
+                  key={`prod-list-key ${index}`}
+                />
+              })}
+            </div>
           </div>
         </div>
         <FooterComponent />
