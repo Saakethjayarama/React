@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 import HeaderComponent from './Components/HeaderComponent'
-import Product from './Components/Product';
 import FooterComponent from './Components/FooterComponent'
 import Axios from 'axios'
 import Menu from './Components/Menu'
+import Item from './Components/Items';
 
 
 class App extends Component {
@@ -44,7 +44,8 @@ class App extends Component {
   }
 
   onClickListener(x) {
-    Axios.get("http://localhost:8080/products/"+(x+1))
+    x = parseInt(x) + 1
+    Axios.get("http://localhost:8080/products/"+x)
       .then((res) => {
         this.setState({
           products : res.data
@@ -60,21 +61,16 @@ class App extends Component {
     const {products} = this.state
     return (
       <div className="App">
+        
         <HeaderComponent />
         <div className="body">
           <div className="body-contents">
-            
             <Menu 
               menu = {menu}
               clickListener = {this.onClickListener} />
-            <div className="grocery-items">
-              {products.map((product, index) => {
-                  return <Product 
-                  product = {product}
-                  key={`prod-list-key ${index}`}
-                />
-              })}
-            </div>
+            <Item 
+              products = {products}
+            />
           </div>
         </div>
         <FooterComponent />

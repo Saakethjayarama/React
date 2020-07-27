@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import '../css/Menu.css'
-
-import MenuItem from '../Components/MenuItem'
-
+import '../css/MenuItem.css'
 
 class Menu extends Component{
 
@@ -11,23 +9,24 @@ class Menu extends Component{
         this.onClickListener = this.onClickListener.bind(this)
     }
 
-    onClickListener(keys) {
+    onClickListener(event) {
         const {clickListener} = this.props
+        var keys = event.target.value
         clickListener(keys)
     }
 
+    item(menuitem, index) {
+        return <button className="item" onClick={this.onClickListener} value={index} key={index}>
+            {menuitem}
+        </button>
+    }
 
 
     render() {
         const {menu} = this.props
         return <div className="menu">
             {menu.map((menuItem, index) => {
-            return <MenuItem 
-                menuItem = {menuItem}
-                keys={index}
-                key={index}
-                clickListener={this.onClickListener}
-            />
+            return this.item(menuItem, index)
             })}
       </div>
     }

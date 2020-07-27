@@ -14,6 +14,17 @@ class Product extends Component {
             </div>
         </div>
     }
+
+    product(name, price) {
+        return<div className="grocery-item">
+            <div className="product-name">
+                {name}
+            </div>
+            <div className="product-price">
+                {price}
+            </div>
+        </div>
+    }
 }
 
 export default Product

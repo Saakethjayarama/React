@@ -3,7 +3,7 @@
   padding: 0px;
 }
 
-.App header {
+.HeaderComponent header {
   background-color: yellow;
   text-align: center;
   padding: 20px 0px;
@@ -11,7 +11,7 @@
   position: sticky;
 }
 
-.App header .nav {
+.HeaderComponent header .nav {
   display: inline;
 }
 /*# sourceMappingURL=HeaderComponent.css.map */

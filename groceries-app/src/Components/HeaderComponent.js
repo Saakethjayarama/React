@@ -2,9 +2,9 @@ import React from 'react';
 import '../css/HeaderComponent.css'
 
 
-function App() {
+function HeaderComponent() {
   return (
-    <div className="App">
+    <div className="HeaderComponent">
       <header>
         <nav>
           <h1>XYZ Department Stores</h1>
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default HeaderComponent;
