@@ -4,8 +4,8 @@ import '../css/Product.css'
 
 class Item extends Component{
 
-    product(name, price) {
-        return<div className="grocery-item">
+    product(name, price, index) {
+        return<div className="grocery-item" key={index}>
             <div className="product-name">
                 {name}
             </div>
@@ -19,7 +19,7 @@ class Item extends Component{
         const {products} = this.props
         return <div className="grocery-items">
             {products.map((product, index) => {
-                return this.product(product.name, product.price)
+                return this.product(product.name, product.price, index)
             })}
       </div>
     }
