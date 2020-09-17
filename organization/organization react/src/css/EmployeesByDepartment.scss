@@ -1,0 +1,23 @@
+.employeesByDepartment {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flexbox;
+    flex-direction: column;
+    padding: 50px;
+    .employee {
+        padding: 15px;
+        background-color: rgb(241, 241, 194);
+        border-bottom: 2px solid black;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        .items{
+            padding-left: 15px;
+            padding-right: 25px;
+        }
+    }
+    .employee:hover {
+        background-color: rgb(218, 218, 196);
+    }
+}

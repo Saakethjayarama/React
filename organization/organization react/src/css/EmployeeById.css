@@ -1,0 +1,12 @@
+.employeesById {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px;
+}
+/*# sourceMappingURL=EmployeeById.css.map */

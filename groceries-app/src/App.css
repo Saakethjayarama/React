@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.App .body {
+  height: 100%;
+  position: absolute;
+}
+
+.App .body .body-contents {
+  background-color: #e22d2d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+}
+/*# sourceMappingURL=App.css.map */

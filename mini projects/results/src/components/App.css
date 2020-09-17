@@ -1,0 +1,55 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  background-color: rgb(78, 78, 117);
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.txtbox {
+  padding: 10px;
+}
+button {
+  padding: 10px;
+  text-transform: uppercase;
+}
+.body {
+  height: 80vh;
+  background-color: rgb(72, 64, 64);
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.result {
+  background-color: antiquewhite;
+}
+.header {
+  background-color: rgb(255, 207, 149);
+  display: flex;
+  flex-direction: row;
+}
+.field {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  background: rgb(188, 233, 143);
+}
+.row:hover {
+  background: rgb(177, 211, 143);
+}
+.total {
+  display: flex;
+  justify-content: center;
+}
