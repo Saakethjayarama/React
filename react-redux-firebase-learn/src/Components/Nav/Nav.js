@@ -9,7 +9,7 @@ function Nav() {
     return (
         <nav className="Nav">
             <div className="logo">
-                <h2>CSVS</h2>
+                <Link to="/"><h2 style={{textDecoration: "none", color: "white"}}>CSVS</h2></Link>
             </div>
             {state ? <NavLinksSignedIn /> : <NavlinkNotSignedId/>}
         </nav>
