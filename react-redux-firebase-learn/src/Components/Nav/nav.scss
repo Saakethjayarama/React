@@ -1,0 +1,25 @@
+.Nav {
+	background-color: rgb(91, 110, 214);
+	padding: 15px;
+	color: white;
+	display: flex;
+	.logo {
+		width: 150px;
+		height: 100%;
+		text-align: center;
+	}
+	.navlinks {
+		display: flex;
+		width: 100%;
+		flex: 1;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		padding-right: 15px;
+		ul {
+			font-weight: bolder;
+			cursor: pointer;
+			margin-top: 5px;
+		}
+	}
+}

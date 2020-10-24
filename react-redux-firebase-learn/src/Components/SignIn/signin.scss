@@ -1,0 +1,21 @@
+.SignIn {
+	margin-top: 150px;
+	display: flex;
+	justify-content: center;
+}
+
+input {
+	padding: 10px;
+	margin: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	text-align: center;
+}
+
+.btn-wrap {
+	display: flex;
+	justify-content: flex-end;
+}
