@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './signin.css';
+import './signup.css';
 
 const INITIAL_STATE = {
     email: "",
     password: ""
 }
 
-export default function SignIn() {
+export default function SignUp() {
     const [state, setState] = useState(INITIAL_STATE)
 
     const handleChange = (event) => {
@@ -24,9 +24,9 @@ export default function SignIn() {
 
 
     return (
-        <div className="SignIn">
+        <div className="SignUp">
             <form onSubmit={handleSubmit}>
-                <h3>Sign In</h3>
+                <h3>Sign Up</h3>
                 <input 
                     type="text" 
                     placeholder="Email" 
@@ -40,7 +40,7 @@ export default function SignIn() {
                     onChange={handleChange}
                 />
                 <div className="btn-wrap">
-                    <input type="submit" value="Sign In" className="btn btn-primary"/>
+                    <input type="submit" value="Sign Up" className="btn btn-primary"/>
                 </div>
             </form>
         </div>

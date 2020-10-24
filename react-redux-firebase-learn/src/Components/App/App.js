@@ -4,7 +4,10 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
-import SingIn from '../SignIn'
+import SingIn from '../SignIn';
+import SignUp from '../SignUp';
+
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +16,10 @@ function App() {
           <Route exact path="/signin">
             <Nav />
             <SingIn />
+          </Route>
+          <Route exact path="/signup">
+            <Nav />
+            <SignUp />
           </Route>
           <Route exact path="/">
             <Nav />
