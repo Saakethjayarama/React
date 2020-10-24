@@ -1,6 +1,8 @@
 import React from 'react'
 import './nav.css'
 
+import {Link} from 'react-router-dom';
+
 function Nav() {
     const state = false;
 
@@ -17,8 +19,8 @@ function Nav() {
 function NavlinkNotSignedId() {
     return (
         <div className="navlinks">
-            <ul>Login</ul>
-            <ul>SignUp</ul>
+            <Link to="/signin"><ul>Login</ul></Link>
+            <Link to="/signup"><ul>SignUp</ul></Link>
         </div>
     )
 }
@@ -26,7 +28,7 @@ function NavlinkNotSignedId() {
 function NavLinksSignedIn() {
     return (
         <div className="navlinks">
-            <ul>Account</ul>
+            <Link to="/landing"><ul>Account</ul></Link>
         </div>
     )
 }

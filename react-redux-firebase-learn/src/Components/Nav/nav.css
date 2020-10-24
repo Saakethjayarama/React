@@ -34,7 +34,8 @@
   padding-right: 15px;
 }
 
-.Nav .navlinks ul {
+ul {
+  color: white;
   font-weight: bolder;
   cursor: pointer;
   margin-top: 5px;

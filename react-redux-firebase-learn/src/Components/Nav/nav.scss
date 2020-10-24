@@ -16,10 +16,11 @@
 		justify-content: flex-end;
 		align-items: center;
 		padding-right: 15px;
-		ul {
-			font-weight: bolder;
-			cursor: pointer;
-			margin-top: 5px;
-		}
 	}
+}
+ul {
+	color: white;
+	font-weight: bolder;
+	cursor: pointer;
+	margin-top: 5px;
 }
