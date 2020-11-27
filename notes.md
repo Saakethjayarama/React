@@ -149,3 +149,19 @@ vii. README.md
   iv. onMouseEnter:- When mouse enters the component
 
   v. onMouseLeave:- when mouse exits the component
+
+```
+routers
+http requests
+axios
+fetch api
+bind :- separate for all types of binding
+arrow fns
+this
+*refs
+formic demo
+context-redux
+conditional rendering
+list all the website which are using react
+cors:- problems
+```
