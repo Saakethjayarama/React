@@ -6,6 +6,7 @@ import Header from "../Header";
 import Menu from "../Menu";
 import Add from "../Add";
 import Manage from "../Manage";
+import Profile from "../Profile";
 
 import * as R from "react-bootstrap";
 
@@ -17,7 +18,11 @@ function App() {
         <R.Row>
           <Switch>
             <Route path="/change">{/*/change => changepassword */}</Route>
-            <Route path="/profile">{/*/ => Profile */}</Route>
+            <Route path="/profile">
+              {/*/ => Profile */}
+              <Menu />
+              <Profile />
+            </Route>
             <Route path="/year">{/*/Year => expenses by year */}</Route>
             <Route path="/month">{/*/month => expenses by month */}</Route>
             <Route path="/day">{/*/day => expenses by day */}</Route>

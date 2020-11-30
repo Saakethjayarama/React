@@ -1,9 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,WAAW,EAAE,IAAI;CAClB",
     "sources": [
-        "profile.scss"
+        "Profile.scss"
     ],
     "names": [],
-    "file": "profile.css"
+    "file": "Profile.css"
 }
