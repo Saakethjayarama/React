@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "../Header";
 import Menu from "../Menu";
+import Add from "../Add";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Menu />
       <Router>
+        <Header />
         <Switch>
           <Route path="/change">{/*/change => changepassword */}</Route>
           <Route path="/profile">{/*/ => Profile */}</Route>
@@ -18,9 +18,14 @@ function App() {
           <Route path="/month">{/*/month => expenses by month */}</Route>
           <Route path="/day">{/*/day => expenses by day */}</Route>
           <Route path="/manage">{/*/manage => manage expenses */}</Route>
-          <Route path="/add">{/*/add => add expenses */}</Route>
+          <Route path="/add">
+            {/*/add => add expenses */}
+            <Menu />
+            <Add />
+          </Route>
           <Route path="/dashboard">{/*/dashboard => dashboard */}</Route>
           <Route path="/year">{/*/year => year */}</Route>
+          <Route path="/">{/*/year => year */}</Route>
         </Switch>
       </Router>
     </div>

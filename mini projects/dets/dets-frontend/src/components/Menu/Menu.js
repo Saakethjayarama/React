@@ -11,54 +11,95 @@ import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
+// react router dom
+import { useHistory } from "react-router-dom";
+
 function Menu() {
+  const history = useHistory();
+
+  const handleClick = (route) => {
+    history.push(route);
+  };
+
+  const handleLogout = () => {
+    console.log("logged out");
+  };
+
   return (
-    <div>
+    <div className="Menu">
       <nav>
         <ul>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/add");
+            }}
+          >
             <div className="m-icon">
               <AddIcon />
             </div>
             Add Expenses
           </li>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/manage");
+            }}
+          >
             <div className="m-icon">
               <DragHandleIcon />
             </div>
             Manage Expenses
           </li>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/day");
+            }}
+          >
             <div className="m-icon">
               <TodayIcon />
             </div>
             Daywise Expenses
           </li>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/month");
+            }}
+          >
             <div className="m-icon">
               <DateRangeIcon />
             </div>
             Monthwise Expenses
           </li>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/year");
+            }}
+          >
             <div className="m-icon">
               <CalendarTodayIcon />
             </div>
             Yearwise Expenses
           </li>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/profile");
+            }}
+          >
             <div className="m-icon">
               <PersonIcon />
             </div>
             Profile
           </li>
-          <li>
+          <li
+            onClick={() => {
+              handleClick("/change");
+            }}
+          >
             <div className="m-icon">
               <VisibilityOffIcon />
             </div>
             Change Password
           </li>
-          <li>
+          <li onClick={handleLogout}>
             <div className="m-icon">
               <LockIcon />
             </div>

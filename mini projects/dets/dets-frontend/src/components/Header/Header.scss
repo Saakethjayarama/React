@@ -8,7 +8,9 @@
   background-color: black;
   color: rgb(48, 165, 255);
 
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-weight: 600;
   font-size: 23px;
@@ -17,7 +19,8 @@
 
 @media screen and (min-width: 768px) {
   .Header {
-    text-align: left;
+    align-items: center;
+    justify-content: flex-start;
     padding-left: 20px;
   }
 }
