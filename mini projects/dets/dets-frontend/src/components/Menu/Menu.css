@@ -1,0 +1,43 @@
+nav {
+  display: inline;
+}
+
+nav ul {
+  list-style-type: none;
+  background-color: #fff;
+}
+
+nav ul li {
+  padding: 20px;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav ul li:hover {
+  background-color: #30a5ff;
+  color: white;
+}
+
+.m-icon {
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 620px) {
+  nav ul {
+    min-height: 90vh;
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  nav ul {
+    width: 20%;
+  }
+}
+/*# sourceMappingURL=Menu.css.map */

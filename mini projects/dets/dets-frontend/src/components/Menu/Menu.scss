@@ -1,0 +1,35 @@
+nav {
+  display: inline;
+  ul {
+    list-style-type: none;
+    background-color: #fff;
+
+    li {
+      padding: 20px;
+      transition: background-color 0.2s ease-out;
+      display: flex;
+      align-items: center;
+    }
+    li:hover {
+      background-color: rgb(48, 165, 255);
+      color: white;
+    }
+  }
+}
+
+.m-icon {
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 620px) {
+  nav ul {
+    min-height: 90vh;
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  nav ul {
+    width: 20%;
+  }
+}

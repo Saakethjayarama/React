@@ -1,0 +1,23 @@
+.Header {
+  // Convert to uppercase
+  text-transform: uppercase;
+
+  min-height: 10vh;
+  padding: 5vh 0;
+
+  background-color: black;
+  color: rgb(48, 165, 255);
+
+  text-align: center;
+
+  font-weight: 600;
+  font-size: 23px;
+  font-family: "Roboto", sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  .Header {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
