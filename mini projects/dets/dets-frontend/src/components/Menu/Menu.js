@@ -12,6 +12,8 @@ import LockIcon from "@material-ui/icons/Lock";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
 // react router dom
+
+import * as R from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 function Menu() {
@@ -26,88 +28,90 @@ function Menu() {
   };
 
   return (
-    <div className="Menu">
-      <nav>
-        <ul>
-          <li
-            onClick={() => {
-              handleClick("/add");
-            }}
-          >
-            <div className="m-icon">
-              <AddIcon />
-            </div>
-            Add Expenses
-          </li>
-          <li
-            onClick={() => {
-              handleClick("/manage");
-            }}
-          >
-            <div className="m-icon">
-              <DragHandleIcon />
-            </div>
-            Manage Expenses
-          </li>
-          <li
-            onClick={() => {
-              handleClick("/day");
-            }}
-          >
-            <div className="m-icon">
-              <TodayIcon />
-            </div>
-            Daywise Expenses
-          </li>
-          <li
-            onClick={() => {
-              handleClick("/month");
-            }}
-          >
-            <div className="m-icon">
-              <DateRangeIcon />
-            </div>
-            Monthwise Expenses
-          </li>
-          <li
-            onClick={() => {
-              handleClick("/year");
-            }}
-          >
-            <div className="m-icon">
-              <CalendarTodayIcon />
-            </div>
-            Yearwise Expenses
-          </li>
-          <li
-            onClick={() => {
-              handleClick("/profile");
-            }}
-          >
-            <div className="m-icon">
-              <PersonIcon />
-            </div>
-            Profile
-          </li>
-          <li
-            onClick={() => {
-              handleClick("/change");
-            }}
-          >
-            <div className="m-icon">
-              <VisibilityOffIcon />
-            </div>
-            Change Password
-          </li>
-          <li onClick={handleLogout}>
-            <div className="m-icon">
-              <LockIcon />
-            </div>
-            Logout
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <R.Col xs={12} md={3} className="Menu">
+      <div className="Menu">
+        <nav>
+          <ul>
+            <li
+              onClick={() => {
+                handleClick("/add");
+              }}
+            >
+              <div className="m-icon">
+                <AddIcon />
+              </div>
+              Add Expenses
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/manage");
+              }}
+            >
+              <div className="m-icon">
+                <DragHandleIcon />
+              </div>
+              Manage Expenses
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/day");
+              }}
+            >
+              <div className="m-icon">
+                <TodayIcon />
+              </div>
+              Daywise Expenses
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/month");
+              }}
+            >
+              <div className="m-icon">
+                <DateRangeIcon />
+              </div>
+              Monthwise Expenses
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/year");
+              }}
+            >
+              <div className="m-icon">
+                <CalendarTodayIcon />
+              </div>
+              Yearwise Expenses
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/profile");
+              }}
+            >
+              <div className="m-icon">
+                <PersonIcon />
+              </div>
+              Profile
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/change");
+              }}
+            >
+              <div className="m-icon">
+                <VisibilityOffIcon />
+              </div>
+              Change Password
+            </li>
+            <li onClick={handleLogout}>
+              <div className="m-icon">
+                <LockIcon />
+              </div>
+              Logout
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </R.Col>
   );
 }
 

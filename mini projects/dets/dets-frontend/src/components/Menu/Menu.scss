@@ -1,8 +1,4 @@
-.Menu {
-  display: inline;
-}
 nav {
-  display: inline;
   ul {
     list-style-type: none;
     background-color: #fff;
@@ -24,17 +20,4 @@ nav {
 
 .m-icon {
   margin-right: 5px;
-}
-
-@media screen and (min-width: 620px) {
-  nav ul {
-    min-height: 90vh;
-    width: 30%;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  nav ul {
-    width: 20%;
-  }
 }
