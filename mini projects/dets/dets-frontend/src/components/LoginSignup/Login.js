@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
 import * as R from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [state, setState] = useState({
@@ -16,14 +17,32 @@ function Login() {
     });
   };
 
+  const handleLoginSubmit = (event) => {
+    console.log("Login submit entered");
+  };
+
+  const handleSignUpSubmit = (event) => {
+    console.log("Signup submit entered");
+  };
+
+  const [isLogin, setIsLogin] = useState(true);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (isLogin) {
+      handleLoginSubmit();
+    } else {
+      handleSignUpSubmit();
+    }
   };
+
+  const [message, setMessage] = useState("");
 
   return (
     <div className="Login">
-      <h1>Daily Expenses Tracking System</h1>
       <R.Col md={5}>
+        {isLogin ? <h2>Login</h2> : <h2>Signup</h2>}
+        {message === "" ? null : <R.Alert variant="danger">Danger</R.Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -49,6 +68,11 @@ function Login() {
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          <div className="float-right">
+            <Link onClick={() => setIsLogin(!isLogin)}>
+              {isLogin ? "Create Account" : "Have an Account? Login"}
+            </Link>
+          </div>
         </Form>
       </R.Col>
     </div>

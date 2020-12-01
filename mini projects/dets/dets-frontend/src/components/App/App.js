@@ -8,7 +8,7 @@ import Add from "../Add";
 import Manage from "../Manage";
 import Profile from "../Profile";
 import Password from "../ChangePassword";
-import Login from "../Login";
+import Login from "../LoginSignup";
 
 import * as R from "react-bootstrap";
 
