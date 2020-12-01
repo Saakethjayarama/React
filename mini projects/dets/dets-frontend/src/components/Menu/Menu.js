@@ -10,6 +10,7 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import DashboardIcon from "@material-ui/icons/Dashboard";
 
 // react router dom
 
@@ -34,13 +35,13 @@ function Menu() {
           <ul>
             <li
               onClick={() => {
-                handleClick("/add");
+                handleClick("/dashboard");
               }}
             >
               <div className="m-icon">
-                <AddIcon />
+                <DashboardIcon />
               </div>
-              Add Expenses
+              Dashboard
             </li>
             <li
               onClick={() => {

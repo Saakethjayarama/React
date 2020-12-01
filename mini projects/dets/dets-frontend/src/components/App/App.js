@@ -9,6 +9,7 @@ import Manage from "../Manage";
 import Profile from "../Profile";
 import Password from "../ChangePassword";
 import Login from "../LoginSignup";
+import Dashboard from "../Dashboard";
 
 import * as R from "react-bootstrap";
 
@@ -16,37 +17,50 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
         <R.Row>
           <Switch>
             <Route path="/change">
               {/*/change => changepassword */}
-              <Header />
               <Menu />
               <Password />
             </Route>
             <Route path="/profile">
               {/*/ => Profile */}
-              <Header />
               <Menu />
               <Profile />
             </Route>
-            <Route path="/year">{/*/Year => expenses by year */}</Route>
-            <Route path="/month">{/*/month => expenses by month */}</Route>
-            <Route path="/day">{/*/day => expenses by day */}</Route>
+            <Route path="/year">
+              {/*/Year => expenses by year */}
+              <Menu />
+            </Route>
+            <Route path="/month">
+              <Menu />
+              {/*/month => expenses by month */}
+            </Route>
+            <Route path="/day">
+              {/*/day => expenses by day */}
+              <Menu />
+            </Route>
             <Route path="/manage">
               {/*/manage => manage expenses */}
-              <Header />
               <Menu />
               <Manage />
             </Route>
             <Route path="/add">
               {/*/add => add expenses */}
-              <Header />
               <Menu />
               <Add />
             </Route>
-            <Route path="/dashboard">{/*/dashboard => dashboard */}</Route>
-            <Route path="/year">{/*/year => year */}</Route>
+            <Route path="/dashboard">
+              {/*/dashboard => dashboard */}
+              <Menu />
+              <Dashboard />
+            </Route>
+            <Route path="/year">
+              {/*/year => year */}
+              <Menu />
+            </Route>
             <Route path="/">
               {/*/login => login */}
               <Login />
