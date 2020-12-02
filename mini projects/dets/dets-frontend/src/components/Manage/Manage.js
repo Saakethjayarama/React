@@ -1,56 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as R from "react-bootstrap";
 import "./Manage.css";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import CreateIcon from "@material-ui/icons/Create";
 import Modal from "./Modal";
+import Snack from "../Add/Snack";
 
 function Manage() {
-  const [expenses, setExpenses] = useState([
-    {
-      id: "20",
-      item: "Pencil",
-      cost: "20",
-      date: "2020-12-12",
-    },
-    {
-      id: "21",
-      item: "Eraser",
-      cost: "20",
-      date: "2020-12-12",
-    },
-    {
-      id: "22",
-      item: "Sharpner",
-      cost: "20",
-      date: "2020-12-12",
-    },
-    {
-      id: "23",
-      item: "Ruler",
-      cost: "20",
-      date: "2020-12-12",
-    },
-  ]);
+  const [expenses, setExpenses] = useState([]);
+
+  const [reload, setReload] = useState(true);
+  // fetch expenses
+  useEffect(() => {
+    fetch("http://localhost/ExpenseByUid.php?id=11")
+      .then((res) => res.json())
+      .then((data) => {
+        setExpenses(data);
+      });
+  }, [reload]);
 
   const handleDelete = (id) => {
-    console.log(`${id} deleted`);
+    setModalShow(false);
+    setMessage("Deleting...😑");
+    setOpen(true);
 
-    // async req to server goes here
-
-    const x = expenses.filter((expense) => expense.id != id);
-    setExpenses([...x]);
+    fetch("http://localhost/Delete.php", {
+      method: "DELETE",
+      body: JSON.stringify({ id }),
+    })
+      .then((res) => {
+        setReload(Math.random());
+        setOpen(false);
+        setMessage("Deleted!😁");
+        setOpen(true);
+      })
+      .catch((err) => {
+        setOpen(false);
+        setMessage("Err Deleting 😬");
+        setOpen(true);
+      });
   };
 
-  const [modalShow, setModalShow] = useState();
+  const [modalShow, setModalShow] = useState(false);
 
   // modal states
   const [modalState, setModalState] = useState({
     id: "",
-    item: "",
-    cost: "",
-    date: "",
+    expenseItem: "",
+    expenseCost: "",
+    expenseDate: "",
   });
+
   const handleEdit = (id) => {
     let selected = expenses.filter((expense) => expense.id === id);
     if (selected.length > 0) {
@@ -68,15 +68,37 @@ function Manage() {
   };
   const modalHandleSubmit = () => {
     setModalShow(false);
-    let rest = expenses.filter((expense) => expense.id !== modalState.id);
-    rest.push(modalState);
-    setExpenses(rest);
+    setMessage("Updating...😑");
+    setOpen(true);
+    fetch("http://localhost/Edit.php", {
+      method: "PUT",
+      body: JSON.stringify(modalState),
+    })
+      .then((res) => {
+        setReload(Math.random());
+        setOpen(false);
+        setMessage("Updated!😁");
+        setOpen(true);
+      })
+      .catch((err) => {
+        setOpen(false);
+        setMessage("Err Updating 😬");
+        setOpen(true);
+      });
+  };
 
-    // async req to update goes here
+  const [open, setOpen] = React.useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSnackClose = (event, reason) => {
+    if (reason === "clickaway") return;
+    setMessage("");
+    setOpen(false);
   };
 
   return (
     <R.Col xs={12} md={7} className="Manage">
+      <Snack onClose={handleSnackClose} open={open} msg={message} />
       <Modal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -99,9 +121,9 @@ function Manage() {
             return (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{value.item}</td>
-                <td>{value.cost}</td>
-                <td>{value.date}</td>
+                <td>{value.expenseItem}</td>
+                <td>{value.expenseCost}</td>
+                <td>{value.expenseDate}</td>
                 <td className="actions">
                   <div
                     className="edit action"

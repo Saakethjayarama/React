@@ -21,8 +21,8 @@ function Mdl(props) {
           <Form.Label>Expenses Item</Form.Label>
           <Form.Control
             type="text"
-            value={modalState.item}
-            name="item"
+            value={modalState.expenseItem}
+            name="expenseItem"
             onChange={modalHandleChange}
           />
         </Form.Group>
@@ -30,8 +30,8 @@ function Mdl(props) {
           <Form.Label>Expenses Cost</Form.Label>
           <Form.Control
             type="text"
-            value={modalState.cost}
-            name="cost"
+            value={modalState.expenseCost}
+            name="expenseCost"
             onChange={modalHandleChange}
           />
         </Form.Group>
@@ -39,8 +39,8 @@ function Mdl(props) {
           <Form.Label>Expenses Date</Form.Label>
           <Form.Control
             type="date"
-            value={modalState.date}
-            name="date"
+            value={modalState.expenseDate}
+            name="expenseDate"
             onChange={modalHandleChange}
           />
         </Form.Group>
