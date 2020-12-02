@@ -2,7 +2,6 @@ import React from "react";
 import "./Menu.css";
 
 // Material ui icons
-import AddIcon from "@material-ui/icons/Add";
 import DragHandleIcon from "@material-ui/icons/DragHandle";
 import TodayIcon from "@material-ui/icons/Today";
 import DateRangeIcon from "@material-ui/icons/DateRange";
