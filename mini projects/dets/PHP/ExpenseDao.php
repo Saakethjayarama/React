@@ -5,5 +5,6 @@
     function deleteExpense($id);
     function expenseByDate($date, $userId);
     function expensesOverPeriod($Startdate, $endDate, $userId);
+    function getExpensesById($id);
   }
 ?>

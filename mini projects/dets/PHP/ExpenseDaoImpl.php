@@ -55,9 +55,9 @@
       $statement->bind_param('i', $id);
 
       $statement->execute();
-      print_r($statement);
       $connection->close();
     }
+    
     function expenseByDate($date, $userId) {
       $connection = JdbcUtil::getConnection();
 
@@ -71,7 +71,6 @@
       if($statement->execute()) {
         $statement->bind_result($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
         while($statement->fetch()) {
-          echo 'Entered';
           $expenses[] = new Expense($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
         }
       }
@@ -94,7 +93,25 @@
       if($statement->execute()) {
         $statement->bind_result($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
         while($statement->fetch()) {
-          echo 'Entered';
+          $expenses[] = new Expense($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
+        }
+      }
+
+      $connection->close();
+      return $expenses;
+    }
+
+    function getExpensesById($id) {
+      $connection = JdbcUtil::getConnection();
+
+      $sql = 'select * from tblexpense where UserId = ?';
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('i', $id);
+
+      $expenses = [];
+      if($statement->execute()) {
+        $statement->bind_result($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
+        while($statement->fetch()) {
           $expenses[] = new Expense($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
         }
       }
