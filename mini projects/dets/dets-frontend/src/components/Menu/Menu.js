@@ -11,6 +11,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 // react router dom
 
@@ -42,6 +43,16 @@ function Menu() {
                 <DashboardIcon />
               </div>
               Dashboard
+            </li>
+            <li
+              onClick={() => {
+                handleClick("/add");
+              }}
+            >
+              <div className="m-icon">
+                <AddCircleIcon />
+              </div>
+              Add Expense
             </li>
             <li
               onClick={() => {
