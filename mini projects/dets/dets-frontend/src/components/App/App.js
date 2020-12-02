@@ -13,6 +13,8 @@ import Dashboard from "../Dashboard";
 
 import * as R from "react-bootstrap";
 
+import { Day, Month, Year } from "../Reports";
+
 function App() {
   return (
     <div className="App">
@@ -33,14 +35,17 @@ function App() {
             <Route path="/year">
               {/*/Year => expenses by year */}
               <Menu />
+              <Year />
             </Route>
             <Route path="/month">
               <Menu />
+              <Month />
               {/*/month => expenses by month */}
             </Route>
             <Route path="/day">
               {/*/day => expenses by day */}
               <Menu />
+              <Day />
             </Route>
             <Route path="/manage">
               {/*/manage => manage expenses */}
