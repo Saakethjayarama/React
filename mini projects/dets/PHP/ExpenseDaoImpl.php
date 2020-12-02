@@ -1,6 +1,7 @@
 <?php
   include_once 'JdbcUtil.php';
   include_once 'ExpenseDao.php';
+  include_once 'Expense.php';
 
   class ExpenseDaoImpl implements ExpenseDao{
     function addExpense($expense) {
@@ -56,6 +57,50 @@
       $statement->execute();
       print_r($statement);
       $connection->close();
+    }
+    function expenseByDate($date, $userId) {
+      $connection = JdbcUtil::getConnection();
+
+      $startDate = $date.' 00:00:00';
+      $endDate = $date.' 23:59:59';
+      $sql = 'SELECT * FROM tblexpense where ExpenseDate BETWEEN ? and ? and UserId = ?';
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('ssi', $startDate, $endDate, $userId);
+
+      $expenses = [];
+      if($statement->execute()) {
+        $statement->bind_result($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
+        while($statement->fetch()) {
+          echo 'Entered';
+          $expenses[] = new Expense($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
+        }
+      }
+
+      $connection->close();
+      return $expenses;
+      
+    }
+
+    function expensesOverPeriod($Startdate, $endDate, $userId) {
+      $connection = JdbcUtil::getConnection();
+
+      $startDate = $date.' 00:00:00';
+      $endDate = $date.' 23:59:59';
+      $sql = 'SELECT * FROM tblexpense where ExpenseDate BETWEEN ? and ? and UserId = ?';
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('ssi', $startDate, $endDate, $userId);
+
+      $expenses = [];
+      if($statement->execute()) {
+        $statement->bind_result($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
+        while($statement->fetch()) {
+          echo 'Entered';
+          $expenses[] = new Expense($id, $userId, $expenseDate, $expenseItem, $expenseCost, $noteDate);
+        }
+      }
+
+      $connection->close();
+      return $expenses;
     }
 
   }
