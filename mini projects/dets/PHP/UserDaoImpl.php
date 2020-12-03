@@ -29,7 +29,6 @@
         $fullName = $user->getFullName();
         $mobileNumber = $user->getMobileNumber();
 
-        echo $id;
         
         $connection = JdbcUtil::getConnection();
         $sql = 'update tbluser set FullName = ?, MobileNumber = ? where ID = ?';
@@ -41,6 +40,21 @@
 
         print_r($statement);
         $connection->close();
+    }
+
+    function resetPassword($user) {
+      $id = $user->getId();
+      $password = $user->getPassword();
+
+      $connection = JdbcUtil::getConnection();
+      $sql = 'update tbluser set Password = ? where ID = ?';
+
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('si', $password, $id);
+
+      $statement->execute();
+
+      $connection->close();
     }
   }
 
