@@ -56,6 +56,44 @@
 
       $connection->close();
     }
+
+    function addUser($user) {
+      $fullName = $user->getFullName();
+      $mobileNumber = $user->getMobileNumber();
+      $password = $user->getPassword();
+      $email = $user->getEmail();
+
+      $connection = JdbcUtil::getConnection();
+      $sql = 'insert into tbluser(FullName, Email, MobileNumber, Password) values(?,?,?,?)';
+
+      $statement = $connection->prepare($sql);
+      $statement->bind_param('ssis', $fullName, $email, $mobileNumber, $password);
+      $statement->execute();
+      $n = $connection->insert_id;
+
+
+      $connection->close();
+      return $n;
+
+    }
+
+    function verifyPassword($email, $password) {
+      $connection = JdbcUtil::getConnection();
+      $sql = 'select Password, ID from tbluser where Email = ?';
+
+      $statement=$connection->prepare($sql);
+      $statement->bind_param('s', $email);
+
+      if($statement->execute()) {
+        $statement->bind_result($pswrd, $id);
+        if($statement->fetch()) {
+          if($password == $pswrd) {
+            $connection->close();
+            return $id;
+          }
+        }
+      }
+    }
   }
 
 ?>
