@@ -61,6 +61,7 @@
     function expenseByDate($date, $userId) {
       $connection = JdbcUtil::getConnection();
 
+
       $startDate = $date.' 00:00:00';
       $endDate = $date.' 23:59:59';
       $sql = 'SELECT * FROM tblexpense where ExpenseDate BETWEEN ? and ? and UserId = ?';
@@ -83,8 +84,8 @@
     function expensesOverPeriod($Startdate, $endDate, $userId) {
       $connection = JdbcUtil::getConnection();
 
-      $startDate = $date.' 00:00:00';
-      $endDate = $date.' 23:59:59';
+      $startDate = $Startdate.' 00:00:00';
+      $endDate = $endDate.' 23:59:59';
       $sql = 'SELECT * FROM tblexpense where ExpenseDate BETWEEN ? and ? and UserId = ?';
       $statement = $connection->prepare($sql);
       $statement->bind_param('ssi', $startDate, $endDate, $userId);
