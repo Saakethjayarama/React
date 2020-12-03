@@ -20,7 +20,7 @@ function Report(props) {
         <tbody>
           {data.map((value, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{value.date}</td>
                 <td>{value.item}</td>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as R from "react-bootstrap";
 import Period from "../Reports/Period";
 import Report from "../Reports/Report";
@@ -17,8 +17,6 @@ function Day() {
   const [periods, setPeriods] = useState({ startDate: "", endDate: "" });
 
   const handleClick = () => {
-    console.log(periods);
-
     fetch(`http://localhost/ExpenseByDate.php?id=11&date=${periods.startDate}`)
       .then((res) => res.json())
       .then((datum) => {
