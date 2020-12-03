@@ -13,6 +13,7 @@ function Report(props) {
           <tr>
             <th>#</th>
             <th>Date</th>
+            <th>Expense Item</th>
             <th>Expense Amount</th>
           </tr>
         </thead>
@@ -22,15 +23,17 @@ function Report(props) {
               <tr>
                 <td>{index + 1}</td>
                 <td>{value.date}</td>
+                <td>{value.item}</td>
                 <td>{value.amount}</td>
               </tr>
             );
           })}
-
-          <tr>
-            <td colSpan="2">Total</td>
-            <td>{total}</td>
-          </tr>
+          {total ? (
+            <tr>
+              <td colSpan="3">Total</td>
+              <td>{total}</td>
+            </tr>
+          ) : null}
         </tbody>
       </Table>
     </R.Col>
