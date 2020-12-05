@@ -5,7 +5,9 @@ class FoodApp extends Component {
     value: "",
     result: "",
   };
-
+  /**
+   * * Use public class fields syntax to get rid of binds
+   */
   handleChange = (e) => {
     this.setState({ value: e.target.value });
   };
