@@ -46,7 +46,6 @@ export default class ParentChild extends Component {
           ref={(input) => (this.age = input)}
           onKeyUp={(e) => this.handleKeyUp(e, "age")}
         />
-        <br />
         <input
           type="submit"
           value="submit"
