@@ -24,6 +24,10 @@ function Day() {
         let ttl = 0;
         datum.forEach((expense) => {
           ttl += parseInt(expense.expenseCost);
+          expense["expenseDate"] = expense.expenseDate
+            .split("-")
+            .reverse()
+            .join("-");
           expenses.push({
             date: expense.expenseDate,
             item: expense.expenseItem,

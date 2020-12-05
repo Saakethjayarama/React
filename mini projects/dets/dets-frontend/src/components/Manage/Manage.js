@@ -15,7 +15,14 @@ function Manage() {
     fetch("http://localhost/ExpenseByUid.php?id=11")
       .then((res) => res.json())
       .then((data) => {
-        setExpenses(data);
+        const datum = [];
+
+        data.forEach((dt) => {
+          dt["expenseDate"] = dt.expenseDate.split("-").reverse().join("-");
+          datum.push(dt);
+        });
+
+        setExpenses(datum);
       });
   }, [reload]);
 
