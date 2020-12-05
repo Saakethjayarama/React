@@ -31,8 +31,16 @@ function ChangePassword() {
     setMessage("Updating...😑");
     setOpen(true);
 
+    const cookies = new Map(
+      document.cookie
+        .split("; ")
+        .map((v) => v.split("=").map(decodeURIComponent))
+    );
+
+    const id = cookies.get("id");
+
     const data = {
-      id: 11,
+      id,
       oldPassword: state.oldPassword,
       password: state.password,
     };

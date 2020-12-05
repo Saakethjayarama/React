@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
 import * as R from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 function Login() {
   const history = useHistory();
@@ -32,6 +39,7 @@ function Login() {
       .then((data) => {
         const { id, message } = data;
         if (id) {
+          setCookie("id", id, 365);
           history.push("/dashboard");
         } else if (message) {
           setMessage(message);

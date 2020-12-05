@@ -17,7 +17,17 @@ function Day() {
   const [periods, setPeriods] = useState({ startDate: "", endDate: "" });
 
   const handleClick = () => {
-    fetch(`http://localhost/ExpenseByDate.php?id=11&date=${periods.startDate}`)
+    const cookies = new Map(
+      document.cookie
+        .split("; ")
+        .map((v) => v.split("=").map(decodeURIComponent))
+    );
+
+    const id = cookies.get("id");
+
+    fetch(
+      `http://localhost/ExpenseByDate.php?id=${id}&date=${periods.startDate}`
+    )
       .then((res) => res.json())
       .then((datum) => {
         const expenses = [];

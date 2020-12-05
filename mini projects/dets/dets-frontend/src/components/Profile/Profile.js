@@ -16,7 +16,15 @@ function Profile() {
   const [profile, setProfile] = useState({ ...INITIAL_STATE });
 
   useEffect(() => {
-    fetch(`http://localhost/Profile.php?id=11`)
+    const cookies = new Map(
+      document.cookie
+        .split("; ")
+        .map((v) => v.split("=").map(decodeURIComponent))
+    );
+
+    const id = cookies.get("id");
+
+    fetch(`http://localhost/Profile.php?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProfile(data);

@@ -12,7 +12,15 @@ function Manage() {
   const [reload, setReload] = useState(true);
   // fetch expenses
   useEffect(() => {
-    fetch("http://localhost/ExpenseByUid.php?id=11")
+    const cookies = new Map(
+      document.cookie
+        .split("; ")
+        .map((v) => v.split("=").map(decodeURIComponent))
+    );
+
+    const id = cookies.get("id");
+
+    fetch("http://localhost/ExpenseByUid.php?id=" + id)
       .then((res) => res.json())
       .then((data) => {
         const datum = [];

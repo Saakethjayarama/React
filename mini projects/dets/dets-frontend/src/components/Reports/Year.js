@@ -17,8 +17,15 @@ function Year() {
   const [periods, setPeriods] = useState({ startDate: "", endDate: "" });
 
   const handleClick = () => {
+    const cookies = new Map(
+      document.cookie
+        .split("; ")
+        .map((v) => v.split("=").map(decodeURIComponent))
+    );
+
+    const id = cookies.get("id");
     fetch(
-      `http://localhost/ExpenseOverPeriod.php?id=11&startDate=${periods.startDate}&endDate=${periods.endDate}`
+      `http://localhost/ExpenseOverPeriod.php?id=${id}&startDate=${periods.startDate}&endDate=${periods.endDate}`
     )
       .then((res) => res.json())
       .then((datum) => {

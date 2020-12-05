@@ -17,6 +17,13 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import * as R from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 function Menu() {
   const history = useHistory();
 
@@ -25,7 +32,8 @@ function Menu() {
   };
 
   const handleLogout = () => {
-    console.log("logged out");
+    setCookie("id", "id", -1);
+    history.push("/");
   };
 
   return (
