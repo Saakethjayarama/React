@@ -1,0 +1,10 @@
+React with typescript
+React Router ✅
+Redux ✅
+Redux Toolkit
+React Query
+Chakra UI
+Formik
+React Testing Library
+Story Book
+Next JS

@@ -1,0 +1,37 @@
+.employeesByDepartment {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px;
+}
+
+.employeesByDepartment .employee {
+  padding: 15px;
+  background-color: #f1f1c2;
+  border-bottom: 2px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.employeesByDepartment .employee .items {
+  padding-left: 15px;
+  padding-right: 25px;
+}
+
+.employeesByDepartment .employee:hover {
+  background-color: #dadac4;
+}
+/*# sourceMappingURL=EmployeesByDepartment.css.map */

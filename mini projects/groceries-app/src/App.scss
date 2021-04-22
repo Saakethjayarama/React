@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.App {
+    .body{
+        height: 100%;
+        position: absolute;
+        .body-contents{
+            background-color: rgb(226, 45, 45);
+            display: flex;
+            flex: 1;
+            height: 100%;
+        }
+    }
+}

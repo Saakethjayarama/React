@@ -1,0 +1,43 @@
+.Nav {
+  background-color: #5b6ed6;
+  padding: 15px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Nav .logo {
+  width: 150px;
+  height: 100%;
+  text-align: center;
+}
+
+.Nav .navlinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 15px;
+}
+
+ul {
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-top: 5px;
+}
+/*# sourceMappingURL=nav.css.map */

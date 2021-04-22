@@ -1,0 +1,31 @@
+.menu {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 15%;
+  padding-top: 75px;
+}
+
+.menu button {
+  padding: 10px;
+  font-size: medium;
+  background-color: #5454fc;
+  color: white;
+  border: 0px;
+  margin-bottom: 15px;
+}
+
+.menu button .link {
+  text-decoration: none;
+  color: white;
+}
+
+.menu button:hover {
+  font-weight: 600;
+}
+/*# sourceMappingURL=DashboardMenu.css.map */
