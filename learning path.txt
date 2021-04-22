@@ -4,7 +4,7 @@ Redux ✅
 Redux Toolkit
 React Query
 Chakra UI
-Formik
+Formik ✅
 React Testing Library
 Story Book
 Next JS

@@ -1,0 +1,35 @@
+.navbar {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 128px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.light {
+  background-color: rgb(242, 242, 242);
+}
+
+#name {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#options {
+  display: flex;
+  flex-direction: row;
+}
+
+.option {
+  margin: 0px 15px;
+  cursor: pointer;
+  font-size: 25px;
+}
