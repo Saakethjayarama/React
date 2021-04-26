@@ -1,9 +1,9 @@
-import Form from "./Form.jsx";
+import FormNewNew from "./FormNewNew";
 
 function App() {
   return (
     <div className="App">
-      <Form />
+      <FormNewNew />
     </div>
   );
 }
