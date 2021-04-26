@@ -14,6 +14,10 @@ function FormNewNew() {
     email: "",
     pincode: "",
     comment: "",
+    urls: {
+      fb: "",
+      insta: "",
+    },
   };
 
   const validationSchema = yup.object({
@@ -22,6 +26,10 @@ function FormNewNew() {
     email: yup.string().required("Required!").email("Invalid Email!"),
     pincode: yup.number().required("Required!"),
     comment: yup.string().required("Required!"),
+    urls: yup.object().shape({
+      fb: yup.string().required("Required!"),
+      insta: yup.string().required("Required!"),
+    }),
   });
 
   return (
@@ -50,11 +58,13 @@ function FormNewNew() {
           <label htmlFor="email">Email:</label>
           <br />
           <Field type="email" name="email" id="email" /> <br />
-          <p>
-            <ErrorMessage name="email" component={Error} />
-          </p>
+          <>
+            <ErrorMessage name="email" component={Error} />{" "}
+            {/** Error message will be wrapped inside Error Component */}
+          </>
           <br />
           <Field name="pincode">
+            {/* For custom components */}
             {(props) => {
               const { field, form, meta } = props;
               return (
@@ -73,7 +83,23 @@ function FormNewNew() {
           <br />
           <Field as="textarea" name="comment" id="comment" />
           <br />
-          <ErrorMessage name="comment" />
+          <ErrorMessage name="comment">
+            {(errorMsg) => <div className="error">{errorMsg}</div>}
+          </ErrorMessage>
+          <br />
+          <label htmlFor="fb">Facebook</label>
+          <br />
+          <Field name="urls.fb" placeholder="FB" id="fb" />
+          <br />
+          <ErrorMessage name="urls.fb" />
+          <br />
+          <br />
+          <label htmlFor="insta">Instagram</label>
+          <br />
+          <Field name="urls.insta" placeholder="Insta" id="insta" />
+          <br />
+          <ErrorMessage name="urls.insta" />
+          <br />
           <br />
           <input type="submit" value="Submit" />
         </Form>
