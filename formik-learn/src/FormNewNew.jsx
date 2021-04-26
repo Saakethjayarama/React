@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import React from "react";
 import * as yup from "yup";
+import Error from "./Error";
 
 function FormNewNew() {
   const onSubmit = (state) => {
@@ -50,7 +51,7 @@ function FormNewNew() {
           <br />
           <Field type="email" name="email" id="email" /> <br />
           <p>
-            <ErrorMessage name="email" />
+            <ErrorMessage name="email" component={Error} />
           </p>
           <br />
           <Field name="pincode">
