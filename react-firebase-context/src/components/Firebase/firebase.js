@@ -3,14 +3,14 @@ import "firebase/auth";
 import "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD6dl81vFiThjWy6D6XaEr_Qr4UQpD307A",
-  authDomain: "learn-firebase-8420d.firebaseapp.com",
-  databaseURL: "https://learn-firebase-8420d.firebaseio.com",
-  projectId: "learn-firebase-8420d",
-  storageBucket: "learn-firebase-8420d.appspot.com",
-  messagingSenderId: "993558558825",
-  appId: "1:993558558825:web:ba7d10ee86d0aa80748af8",
-  measurementId: "G-VT6VDTBMSH"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MESUREMENT_ID
 };
 
 class Firebase {

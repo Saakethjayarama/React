@@ -4,6 +4,14 @@ import Button from "./Button";
 export default {
   title: "Button",
   component: Button,
+  argTypes: {
+    variant: {
+      control: {
+        type: "radio",
+        options: ["primary", "secondary", "success", "danger"],
+      },
+    },
+  },
 };
 
 export const Primary = () => <Button variant="primary">Primary</Button>;
