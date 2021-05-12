@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import React from "react";
 import * as yup from "yup";
 import Error from "./Error";
@@ -18,7 +18,11 @@ function FormNewNew() {
       fb: "",
       insta: "",
     },
+    phoneNumbers: ["", ""],
+    phNos: [""],
   };
+
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const validationSchema = yup.object({
     name: yup.string().required("Required!"),
@@ -30,6 +34,15 @@ function FormNewNew() {
       fb: yup.string().required("Required!"),
       insta: yup.string().required("Required!"),
     }),
+    phoneNumbers: yup.array(),
+    "phoneNumber[0]": yup
+      .string()
+      .matches(phoneRegExp, "Phone Number is invalid")
+      .required("Required!"),
+    "phoneNumber[1]": yup
+      .string()
+      .matches(phoneRegExp, "Phone Number is invalid")
+      .required("Required!"),
   });
 
   return (
@@ -101,6 +114,56 @@ function FormNewNew() {
           <ErrorMessage name="urls.insta" />
           <br />
           <br />
+          {/* Phone Number */}
+          <label htmlFor="phone1">Primary PhoneNumber</label>
+          <br />
+          <Field name="phoneNumbers[0]" placeholder="Primary" id="phone1" />
+          <br />
+          <ErrorMessage name="phoneNumbers[0]" />
+          <br />
+          <br />
+          {/* Phone Number end */}
+          {/* Phone Number */}
+          <label htmlFor="phone2">Secondary PhoneNumber</label>
+          <br />
+          <Field name="phoneNumbers[1]" placeholder="Secondary" id="phone2" />
+          <br />
+          <ErrorMessage name="phoneNumbers[1]" />
+          <br />
+          <br />
+          {/* Phone Number end */}
+          <FieldArray name="phNos">
+            {(props) => {
+              console.log("Field array props", props);
+              const { push, remove, form } = props;
+              const { values } = form;
+              const { phNos } = values;
+              console.log(phNos);
+              return (
+                <>
+                  {phNos.map((phNo, index) => {
+                    return (
+                      <div key={index}>
+                        <label htmlFor={`phNos${index}`}>
+                          Phone Number {index}
+                        </label>
+                        <br />
+                        <input
+                          type="text"
+                          id={`phNos${index}`}
+                          name={`phNos[${index}]`}
+                        />
+                        {index > 0 && (
+                          <button onClick={() => remove(index)}>-</button>
+                        )}
+                        <button onClick={() => push("")}>+</button>
+                      </div>
+                    );
+                  })}
+                </>
+              );
+            }}
+          </FieldArray>
           <input type="submit" value="Submit" />
         </Form>
       </Formik>
