@@ -10,6 +10,7 @@ function FormikContainer() {
     branch: "",
     gender: "",
     languages: [],
+    dob: "",
   };
 
   const handleSubmit = (state, submitProps) => {
@@ -23,6 +24,7 @@ function FormikContainer() {
     branch: yup.string().required("Required!"),
     gender: yup.string().required("Required!"),
     languages: yup.array().min(1, "Required!"),
+    dob: yup.date().required("Required"),
   });
 
   const branches = [
@@ -106,6 +108,7 @@ function FormikContainer() {
                 label="Language"
                 options={languages}
               />
+              <FormikControl control="date" name="dob" label="Date of Birth" />
               <button type="submit">Submit</button>
             </Form>
           );
