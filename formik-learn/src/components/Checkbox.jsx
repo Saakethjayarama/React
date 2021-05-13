@@ -10,7 +10,7 @@ function Checkbox({ name, label, options, ...rest }) {
       <Field name={name}>
         {({ field }) => {
           return options.map((option) => (
-            <React.Fragment>
+            <React.Fragment key={option.key}>
               <input
                 type="checkbox"
                 name={name}

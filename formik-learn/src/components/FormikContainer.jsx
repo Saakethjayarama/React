@@ -22,7 +22,7 @@ function FormikContainer() {
     bio: yup.string().required("Required!"),
     branch: yup.string().required("Required!"),
     gender: yup.string().required("Required!"),
-    languages: yup.array().required("Required!"),
+    languages: yup.array().min(1, "Required!"),
   });
 
   const branches = [
@@ -77,36 +77,39 @@ function FormikContainer() {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        {(formik) => (
-          <Form>
-            <FormikControl
-              control="input"
-              name="name"
-              label="Name"
-              type="text"
-            />
-            <FormikControl control="textarea" name="bio" label="Bio" />
-            <FormikControl
-              control="select"
-              name="branch"
-              label="Branch"
-              options={branches}
-            />
-            <FormikControl
-              control="radio"
-              name="gender"
-              label="Gender"
-              options={genders}
-            />
-            <FormikControl
-              control="checkbox"
-              name="languages"
-              label="Language"
-              options={languages}
-            />
-            <button type="submit">Submit</button>
-          </Form>
-        )}
+        {(formik) => {
+          console.log("Formik ", formik);
+          return (
+            <Form>
+              <FormikControl
+                control="input"
+                name="name"
+                label="Name"
+                type="text"
+              />
+              <FormikControl control="textarea" name="bio" label="Bio" />
+              <FormikControl
+                control="select"
+                name="branch"
+                label="Branch"
+                options={branches}
+              />
+              <FormikControl
+                control="radio"
+                name="gender"
+                label="Gender"
+                options={genders}
+              />
+              <FormikControl
+                control="checkbox"
+                name="languages"
+                label="Language"
+                options={languages}
+              />
+              <button type="submit">Submit</button>
+            </Form>
+          );
+        }}
       </Formik>
     </div>
   );
