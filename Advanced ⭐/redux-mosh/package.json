@@ -1,0 +1,22 @@
+{
+  "name": "redux-learn-mosh",
+  "version": "1.0.0",
+  "description": "redux learn using mosh's youtube vid",
+  "main": "index.js",
+  "devDependencies": {
+    "webpack": "4.44.1",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
+  },
+  "dependencies": {
+    "immer": "7.0.8",
+    "immutable": "4.0.0-rc.12",
+    "redux": "^4.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config ./webpack.config.js"
+  },
+  "author": "Saaketh",
+  "license": "MIT"
+}
