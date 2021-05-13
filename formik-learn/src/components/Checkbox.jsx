@@ -2,33 +2,32 @@ import { ErrorMessage, Field } from "formik";
 import React from "react";
 import Error from "./Error";
 
-function Radio({ label, name, options, rest }) {
+function Checkbox({ name, label, options, ...rest }) {
   return (
     <div className="form-control">
       <label htmlFor={name}>{label}</label>
       <br />
-      <Field name={name} {...rest}>
+      <Field name={name}>
         {({ field }) => {
-          console.log("Field  ", field);
           return options.map((option) => (
-            <React.Fragment key={option.key}>
+            <React.Fragment>
               <input
-                type="radio"
-                id={option.value}
+                type="checkbox"
+                name={name}
+                id={option.key}
                 {...field}
                 value={option.key}
-                checked={option.key == field.value}
+                checked={field.value.includes(option.key)}
               />
-              <label htmlFor={option.value}>{option.value}</label>
+              <label htmlFor={option.key}>{option.value}</label>
             </React.Fragment>
           ));
         }}
       </Field>
       <br />
       <ErrorMessage name={name} component={Error} />
-      <br />
     </div>
   );
 }
 
-export default Radio;
+export default Checkbox;

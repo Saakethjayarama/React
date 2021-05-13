@@ -9,6 +9,7 @@ function FormikContainer() {
     bio: "",
     branch: "",
     gender: "",
+    languages: [],
   };
 
   const handleSubmit = (state, submitProps) => {
@@ -21,6 +22,7 @@ function FormikContainer() {
     bio: yup.string().required("Required!"),
     branch: yup.string().required("Required!"),
     gender: yup.string().required("Required!"),
+    languages: yup.array().required("Required!"),
   });
 
   const branches = [
@@ -53,6 +55,21 @@ function FormikContainer() {
     },
   ];
 
+  const languages = [
+    {
+      key: "KAN",
+      value: "Kannada",
+    },
+    {
+      key: "TEL",
+      value: "Telegu",
+    },
+    {
+      key: "HIN",
+      value: "Hindi",
+    },
+  ];
+
   return (
     <div>
       <Formik
@@ -80,6 +97,12 @@ function FormikContainer() {
               name="gender"
               label="Gender"
               options={genders}
+            />
+            <FormikControl
+              control="checkbox"
+              name="languages"
+              label="Language"
+              options={languages}
             />
             <button type="submit">Submit</button>
           </Form>
