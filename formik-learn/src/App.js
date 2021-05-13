@@ -1,9 +1,9 @@
-import FormNewNew from "./FormNewNew";
+import SaveFromState from "./04. SaveFormState";
 
 function App() {
   return (
     <div className="App">
-      <FormNewNew />
+      <SaveFromState />
     </div>
   );
 }
