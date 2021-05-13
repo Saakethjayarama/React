@@ -7,6 +7,7 @@ function FormikContainer() {
   const initialValues = {
     name: "",
     bio: "",
+    branch: "",
   };
 
   const handleSubmit = (state, submitProps) => {
@@ -17,7 +18,27 @@ function FormikContainer() {
   const validationSchema = yup.object({
     name: yup.string().required("Required!"),
     bio: yup.string().required("Required!"),
+    branch: yup.string().required("Required!"),
   });
+
+  const branches = [
+    {
+      key: "",
+      value: "--Select--",
+    },
+    {
+      key: "CSE",
+      value: "Computer Science and Engineering",
+    },
+    {
+      key: "ISE",
+      value: "Information Science and Engineering",
+    },
+    {
+      key: "AI&ML",
+      value: "Artificial Intelligence and Machine Learning",
+    },
+  ];
 
   return (
     <div>
@@ -39,6 +60,13 @@ function FormikContainer() {
               name="bio"
               label="Bio"
               type="text"
+            />
+            <FormikControl
+              control="select"
+              name="branch"
+              label="Branch"
+              type="select"
+              options={branches}
             />
             <button type="submit">Submit</button>
           </Form>

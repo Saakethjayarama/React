@@ -6,8 +6,10 @@ function Input({ type, label, name, ...rest }) {
   return (
     <div className="form-control">
       <label htmlFor={name}>{label}</label>
-      <Field name={name} id={name} {...rest} />
+      <br />
+      <Field name={name} id={name} {...rest} /> <br />
       <ErrorMessage name={name} component={Error} />
+      <br />
     </div>
   );
 }
