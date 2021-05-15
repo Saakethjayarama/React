@@ -1,0 +1,16 @@
+.input {
+  margin: 10px 5px;
+}
+
+.sm {
+  font-size: small;
+  padding: 5px;
+}
+.md {
+  font-size: medium;
+  padding: 10px;
+}
+.lg {
+  font-size: large;
+  padding: 15px;
+}
